@@ -10,7 +10,8 @@ export function CardGrid({ columns, children }: Props) {
     <div
       className="card-grid"
       style={{
-        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        gridTemplateColumns: `repeat(${Math.max(1, columns)}, minmax(0, 1fr))`,
+        maxWidth: columns <= 3 ? `${columns * 96}px` : undefined,
       }}
     >
       {children}
