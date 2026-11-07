@@ -1,3 +1,4 @@
+import { GameShell } from "@freegamestore/games";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Card } from "./components/Card";
 import { CardGrid } from "./components/CardGrid";
@@ -475,11 +476,12 @@ export default function App() {
   const canBank = isPlayerTurn && gs.playerRound > 0;
 
   return (
+    <GameShell>
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
+        height: "100%",
         overflow: "hidden",
         background: "var(--paper)",
         color: "var(--ink)",
@@ -900,6 +902,7 @@ export default function App() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </GameShell>
   );
 }
